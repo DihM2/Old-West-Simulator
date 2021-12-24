@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class StripClub : Build
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+
+    public override void UseService()
     {
+        if(gameManagerScript.Money >= 5)
+        {
+            gameManagerScript.Money -= 5;
+            Debug.Log("You have some fun with a hooker!");
+        }
+        else
+        {
+            Debug.Log("You don't have enought money!");
+        }
         
     }
 }

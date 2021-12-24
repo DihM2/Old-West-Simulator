@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float speed = 5.0f;
 
+    Build houseService;
+
+    GameObject mainCamera;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -20,6 +24,11 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMovement();
         
+        if(houseService != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            houseService.UseService();
+        }
+
     }
 
     void PlayerMovement()
@@ -30,5 +39,16 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
 
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        houseService = other.GetComponent<Build>();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        houseService = null;
     }
 }

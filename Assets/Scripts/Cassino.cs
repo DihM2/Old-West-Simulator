@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Cassino : Build
 {
-    // Start is called before the first frame update
-    void Start()
+    
+
+    public override void UseService()
     {
+        float gameMoney = MiniGame();
+        
+        gameManagerScript.Money += gameMoney;
+        if(gameMoney > 0)
+        {
+            Debug.Log("You played poker and won!");
+        }
+        else if(gameMoney < 0)
+        {
+            Debug.Log("You played poker and lose!");
+        }
+        else
+        {
+            Debug.Log("You played poker and didn't won or lose!");
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    float MiniGame()
     {
-        
+        return Random.Range(-1f, 3f);
     }
 }

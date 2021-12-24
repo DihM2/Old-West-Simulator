@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Saloon : Build
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void UseService()
     {
+        if (gameManagerScript.Money >= 1)
+        {
+            gameManagerScript.Money -= 1;
+            Debug.Log("You drinked a beer!");
+        }
+        else
+        {
+            Debug.Log("You don't have enought money!");
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
