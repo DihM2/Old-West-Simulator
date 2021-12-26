@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 5.0f;
 
     Build houseService;
+    [SerializeField] MiniGame miniGame;
 
     GameObject mainCamera;
 
@@ -22,13 +23,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
-        
-        if(houseService != null && Input.GetKeyDown(KeyCode.Space))
+        if (!miniGame.cardGameIsOn)
         {
-            houseService.UseService();
-        }
+            PlayerMovement();
 
+            if (houseService != null && Input.GetKeyDown(KeyCode.Space))
+            {
+                houseService.UseService();
+            }
+        }
     }
 
     void PlayerMovement()

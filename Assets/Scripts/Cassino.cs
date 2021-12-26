@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Cassino : Build
 {
-    
+    [SerializeField] MiniGame miniGameScript;
 
     public override void UseService()
     {
+        miniGameScript.PlayCards();
+
         float gameMoney = MiniGame();
+
         string message;
 
         gameManagerScript.Money += gameMoney;
@@ -28,7 +31,7 @@ public class Cassino : Build
         gameManagerScript.ChangeText(message);
     }
 
-    float MiniGame()
+    public float MiniGame()
     {
         return Random.Range(-1f, 3f);
     }
