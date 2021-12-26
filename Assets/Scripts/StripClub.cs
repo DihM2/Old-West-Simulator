@@ -11,11 +11,11 @@ public class StripClub : Build
         if(gameManagerScript.Money >= 5)
         {
             gameManagerScript.Money -= 5;
-            Debug.Log("You have some fun with a hooker!");
+            gameManagerScript.ChangeText("You gained a massage!\nYou paid $ 5,00 to the girl!");
         }
         else
         {
-            Debug.Log("You don't have enought money!");
+            gameManagerScript.ChangeText("You don't have enought money.");
         }
         
     }

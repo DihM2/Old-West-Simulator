@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI messageBoxText;
 
 
-    private float money;
+    private float money = 5f;
     public float Money
     {
         get => money;
@@ -38,8 +38,15 @@ public class GameManager : MonoBehaviour
             $"\nPress Space to use service.");
     }
 
+    public void ChangeText(string message)
+    {
+        messageBoxText.SetText(message);
+    }
+
     private void ChangeMoneyText()
     {
         moneyText.SetText($"Money: {money.ToString("n2")}");
     }
+
+    
 }
