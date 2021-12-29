@@ -10,27 +10,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 5.0f;
 
     Build houseService;
-    [SerializeField] MiniGame miniGame;
 
-    GameObject mainCamera;
+    //GameObject mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = GameObject.Find("Main Camera");
+        //mainCamera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!miniGame.cardGameIsOn)
-        {
-            PlayerMovement();
+        PlayerMovement();
 
-            if (houseService != null && Input.GetKeyDown(KeyCode.Space))
-            {
-                houseService.UseService();
-            }
+        if (houseService != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            houseService.UseService();
         }
     }
 
@@ -42,7 +38,6 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
 
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-
     }
 
     private void OnTriggerEnter(Collider other)

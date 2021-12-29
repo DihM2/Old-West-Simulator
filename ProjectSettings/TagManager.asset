@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MsgBox
+  - Card
   layers:
   - Default
   - TransparentFX

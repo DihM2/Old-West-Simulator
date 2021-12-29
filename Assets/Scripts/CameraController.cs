@@ -31,6 +31,8 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(lookPosition);
     }
 
+
+    // Follow the player movement
     void FollowPlayer()
     {
         transform.position = playerGo.transform.position + offSet;

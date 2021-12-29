@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Cassino : Build
 {
-    [SerializeField] MiniGame miniGameScript;
+    //[SerializeField] MiniGame miniGameScript;
 
     public override void UseService()
     {
-        miniGameScript.PlayCards();
+        //miniGameScript.PlayCards();
 
         float gameMoney = MiniGame();
-
         string message;
 
         gameManagerScript.Money += gameMoney;
+
         if(gameMoney > 0)
         {
             message = $"You played poker and won $ {gameMoney.ToString("n2")}";
@@ -28,7 +28,7 @@ public class Cassino : Build
             message = $"You played poker and didn't won anything.";
         }
 
-        gameManagerScript.ChangeText(message);
+        uiManager.ChangeText(message);
     }
 
     public float MiniGame()

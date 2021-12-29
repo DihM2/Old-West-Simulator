@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MiniGame : MonoBehaviour
 {
-    int cardValue;
 
     [SerializeField] GameObject cardPrefab;
 
@@ -19,7 +18,20 @@ public class MiniGame : MonoBehaviour
             Instantiate(cardPrefab, new Vector3(i * 100, 0, 0) + transform.position, cardPrefab.transform.rotation, transform);
         }
 
+    }
+
+    public void AddMoney(int money)
+    {
+        GameManager gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        Card[] cards = GetComponentsInChildren<Card>();
         
-        //return cardValue;
+        foreach(Card card in cards)
+        {
+            card.ChangeSprite();
+        }
+
+        gameManager.Money += money;
+
+        
     }
 }

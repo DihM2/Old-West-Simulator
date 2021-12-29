@@ -9,6 +9,7 @@ public abstract class Build : MonoBehaviour
     [SerializeField] string serviceName;
 
     protected GameManager gameManagerScript;
+    protected UIManager uiManager;
 
 
 
@@ -18,6 +19,7 @@ public abstract class Build : MonoBehaviour
         buildName = gameObject.name;
 
         gameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        uiManager = GameObject.Find("UI Canvas").GetComponent<UIManager>();
     }
 
     public abstract void UseService();
@@ -25,11 +27,11 @@ public abstract class Build : MonoBehaviour
     
     protected void OnTriggerEnter(Collider other)
     {
-        gameManagerScript.ShowMessageBox(buildName, serviceName);
+        uiManager.ShowMessageBox(buildName, serviceName);
     }
 
     protected void OnTriggerExit(Collider other)
     {
-        gameManagerScript.HideMessageBox();
+        uiManager.HideMessageBox();
     }
 }

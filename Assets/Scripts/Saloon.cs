@@ -9,11 +9,11 @@ public class Saloon : Build
         if (gameManagerScript.Money >= 1)
         {
             gameManagerScript.Money -= 1;
-            gameManagerScript.ChangeText("You drinked a beer!\nYou paid $ 1,00 to the barman!");
+            uiManager.ChangeText("You drinked a beer!\nYou paid $ 1,00 to the barman!");
         }
         else
         {
-            gameManagerScript.ChangeText("You don't have enought money.");
+            uiManager.ChangeText("You don't have enought money.");
         }
         
     }
